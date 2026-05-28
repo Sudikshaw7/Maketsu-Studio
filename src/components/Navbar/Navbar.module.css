@@ -1,0 +1,123 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 4rem;
+  transition: padding 0.4s var(--ease-out), background 0.4s;
+}
+
+.nav.scrolled {
+  padding: 1.2rem 4rem;
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  color: var(--white);
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.links a {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.3s;
+  position: relative;
+}
+
+.links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.3s var(--ease-out);
+}
+
+.links a:hover {
+  color: var(--white);
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+.cta {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  padding: 0.6rem 1.4rem;
+  border-radius: 2px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.cta:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+
+.burger span {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--white);
+  transition: transform 0.3s, opacity 0.3s;
+  transform-origin: center;
+}
+
+.burger.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.burger.active span:nth-child(2) { opacity: 0; }
+.burger.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+@media (max-width: 900px) {
+  .nav { padding: 1.5rem 2rem; }
+  .nav.scrolled { padding: 1rem 2rem; }
+  .links {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--off-black);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+  .links.open { display: flex; }
+  .links a { font-size: 1rem; }
+  .cta { display: none; }
+  .burger { display: flex; }
+}

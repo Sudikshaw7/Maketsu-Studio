@@ -1,0 +1,84 @@
+:root {
+  --black: #0a0a0a;
+  --off-black: #111111;
+  --dark: #1a1a1a;
+  --card-bg: #161616;
+  --white: #f5f0e8;
+  --cream: #e8dfc8;
+  --gold: #c9a84c;
+  --gold-light: #e8c96e;
+  --accent: #ff4d2e;
+  --muted: #6b6b6b;
+  --border: #2a2a2a;
+
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-elegant: 'Cormorant Garamond', serif;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-inout: cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: none;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+/* Utility */
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

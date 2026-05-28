@@ -1,0 +1,137 @@
+.team {
+  padding: 8rem 4rem;
+  background: var(--off-black);
+}
+
+.header {
+  max-width: 600px;
+  margin-bottom: 5rem;
+}
+
+.header .section-label { display: block; margin-bottom: 1rem; }
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--white);
+  margin: 1rem 0 1.2rem;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--gold);
+  font-family: var(--font-elegant);
+}
+
+.sub {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease-out), border-color 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201,168,76,0.3);
+}
+
+.imgWrap {
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+}
+
+.imgWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(30%);
+  transition: filter 0.4s, transform 0.5s var(--ease-out);
+}
+
+.card:hover .imgWrap img {
+  filter: grayscale(0%);
+  transform: scale(1.04);
+}
+
+.imgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--card-bg) 0%, transparent 40%);
+}
+
+.info {
+  padding: 1.5rem;
+}
+
+.nameRow {
+  margin-bottom: 0.8rem;
+}
+
+.name {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.2rem;
+}
+
+.role {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.bio {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.skill {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.card:hover .skill {
+  color: var(--gold);
+  border-color: rgba(201,168,76,0.25);
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  .team { padding: 5rem 2rem; }
+  .grid { grid-template-columns: 1fr; }
+}
